@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demonstrate &lt;star-rating&gt;</title>
+  <script src="/dist/star-rating.class.js"></script>
+  <style>
+    body {
+      background-color: gainsboro;
+    }
+    body > p {
+      border-top: 1px solid gray;
+    }
+    body > p:first-child {
+      border-top: none;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    star-rating.big-gold {
+      --star-rating-color: goldenrod;
+      --star-rating-font-size: 300%;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <p><code>&lt;star-rating&gt;&lt;/star-rating&gt;</code></p>
+    <star-rating></star-rating>
+
+    <p><code>&lt;star-rating stars="3"&gt;&lt;/star-rating&gt;</code></p>
+    <star-rating stars="3"></star-rating>
+
+    <p>
+      <code>
+        <pre>
+&lt;style&gt;
+  star-rating.big-gold {
+    --star-rating-color: goldenrod;
+    --star-rating-font-size: 300%;
+  }
+&lt;/style&gt;
+        </pre>
+        &lt;star-rating stars="9" rating="6" class="big-gold"&gt;&lt;/star-rating&gt;
+      </code>
+    <p>
+    <star-rating stars="9" rating="6" class="big-gold"></star-rating>
+  </section>
+
+  <p>Last rating change to: <span id="changed-rating"></span></p>
+
+  <script>
+    document.body.addEventListener('change', event => {
+      document.getElementById('changed-rating').textContent = event.detail.rating
+    })
+  </script>
+</body>
+</html>
