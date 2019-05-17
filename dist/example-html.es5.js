@@ -26,85 +26,45 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var StarRating =
+var ExampleHtml =
 /*#__PURE__*/
 function (_HTMLElement) {
-  _inherits(StarRating, _HTMLElement);
+  _inherits(ExampleHtml, _HTMLElement);
 
-  function StarRating() {
-    _classCallCheck(this, StarRating);
+  function ExampleHtml() {
+    _classCallCheck(this, ExampleHtml);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(StarRating).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ExampleHtml).apply(this, arguments));
   }
 
-  _createClass(StarRating, [{
+  _createClass(ExampleHtml, [{
+    key: "encode",
+    // Shout out! https://gist.github.com/fernandosavio/5349619
+    value: function encode(str) {
+      var div = document.createElement("div");
+      div["textContent" in div ? "textContent" : "innerText"] = str;
+      return div.innerHTML;
+    }
+  }, {
     key: "connectedCallback",
     value: function connectedCallback() {
       var _this = this;
 
-      this.innerHTML = "\n  <div class=\"star-rating_container\">\n\n  </div>\n";
-      this._maxScore = parseInt(this.getAttribute('stars'), 10) || 5;
-      var html = '';
+      setTimeout(function () {
+        var codez = _this.innerHTML;
 
-      for (var i = 1; i <= this._maxScore; i++) {
-        html += "<div class=\"star-rating_star\" data-position=\"".concat(i, "\"></div>");
-      }
+        var example = _this.encode(codez);
 
-      this.querySelector('.star-rating_container').innerHTML = html;
-      this.setRating(parseInt(this.getAttribute('rating'), 10) || 0);
-      this.addEventListener('click', function (event) {
-        var positionClicked = parseInt(event.target.getAttribute('data-position'), 10);
-
-        _this.setRating(positionClicked, event);
-      });
-    }
-  }, {
-    key: "dispatchChange",
-    value: function dispatchChange() {
-      var event = new CustomEvent('change', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          rating: this._rating
-        }
-      });
-      this.dispatchEvent(event);
-    }
-  }, {
-    key: "setRating",
-    value: function setRating(newRating) {
-      var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      this._rating = newRating === this._rating ? 0 : newRating;
-
-      for (var i = 1; i < this._maxScore + 1; i++) {
-        var star = this.querySelector("[data-position=\"".concat(i, "\"]"));
-
-        if (i > this._rating) {
-          star.classList.remove('star-rating_solid');
-        } else {
-          star.classList.add('star-rating_solid');
-        }
-      }
-
-      event && this.dispatchChange();
+        _this.innerHTML = "\n<dt><code><pre>".concat(example, "</pre></code></dt>\n<dd>\n").concat(codez, "\n</dd>\n");
+      }, 0);
     }
   }]);
 
-  return StarRating;
+  return ExampleHtml;
 }(_wrapNativeSuper(HTMLElement));
 
 "use strict";
 
-;
-
-(function () {
-  var style = document.createElement('style');
-  style.textContent = '.star-rating_star {  color: var(--star-rating-color, black);  display: inline-block;  font-size: var(--star-rating-font-size, 150%);  height: 1em;  position: relative;  width: 1em;}.star-rating_star::before {  content: \'\\2606\';  left: 0;  position: absolute;  top: 0;}.star-rating_solid::before {  content: \'\\2605\';  position: absolute;  top: 0;  left: 0;}';
-  document.head.appendChild(style);
-})();
-
-"use strict";
-
 window.addEventListener('WebComponentsReady', function () {
-  customElements.define('star-rating', StarRating);
+  customElements.define('example-html', ExampleHtml);
 });

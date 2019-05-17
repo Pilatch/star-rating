@@ -3,17 +3,19 @@
 <head>
   <title>Demonstrate &lt;star-rating&gt;</title>
   <script src="/dist/star-rating.class.js"></script>
+  <script src="/dist/example-html.class.js"></script>
   <style>
     body {
       background-color: white;
     }
-    p {
-      border-top: 1px solid gray;
+    dd {
+      border-bottom: 1px solid gray;
     }
-    p:first-child {
-      border-top: none;
+    dl {
+      margin-bottom: 2em;
     }
-    section {
+    star-rating {
+      display: block;
       margin-bottom: 2em;
     }
     star-rating.big-gold {
@@ -23,28 +25,31 @@
   </style>
 </head>
 <body>
-  <section>
-    <p><code>&lt;star-rating&gt;&lt;/star-rating&gt;</code></p>
-    <star-rating></star-rating>
+  <dl>
 
-    <p><code>&lt;star-rating stars="3"&gt;&lt;/star-rating&gt;</code></p>
-    <star-rating stars="3"></star-rating>
+    <example-html>
+      <star-rating></star-rating>
+    </example-html>
 
-    <p>
-      <code>
-        <pre>
-&lt;style&gt;
-  star-rating.big-gold {
-    --star-rating-color: goldenrod;
-    --star-rating-font-size: 300%;
-  }
-&lt;/style&gt;
-        </pre>
-        &lt;star-rating stars="9" rating="6" class="big-gold"&gt;&lt;/star-rating&gt;
-      </code>
-    <p>
-    <star-rating stars="9" rating="6" class="big-gold"></star-rating>
-  </section>
+    <example-html>
+      <star-rating stars="3"></star-rating>
+    </example-html>
+
+    <example-html>
+      <star-rating stars="2" rating="2"></star-rating>
+    </example-html>
+
+    <example-html>
+      <style>
+        star-rating.big-gold {
+          --star-rating-color: goldenrod;
+          --star-rating-font-size: 300%;
+        }
+      </style>
+      <star-rating stars="9" rating="6" class="big-gold"></star-rating>
+    </example-html>
+
+  </dl>
 
   <p>Last rating change to: <span id="changed-rating"></span></p>
 

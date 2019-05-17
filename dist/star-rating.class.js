@@ -29,7 +29,6 @@ class StarRating extends HTMLElement {
   top: 0;
   left: 0;
 }</style>`;
-    this._rating = 0;
     this._maxScore = parseInt(this.getAttribute('stars'), 10) || 5;
     let html = '';
 
@@ -38,10 +37,10 @@ class StarRating extends HTMLElement {
     }
 
     this.querySelector('.star-rating_container').innerHTML = html;
-    this.rating = parseInt(this.getAttribute('rating'), 10) || 0;
+    this.setRating(parseInt(this.getAttribute('rating'), 10) || 0);
     this.addEventListener('click', event => {
       let positionClicked = parseInt(event.target.getAttribute('data-position'), 10);
-      this.rating = positionClicked;
+      this.setRating(positionClicked, event);
     });
   }
 
@@ -56,12 +55,8 @@ class StarRating extends HTMLElement {
     this.dispatchEvent(event);
   }
 
-  set rating(newRating) {
-    if (newRating === this._rating) {
-      this._rating = 0;
-    } else {
-      this._rating = newRating;
-    }
+  setRating(newRating, event = null) {
+    this._rating = newRating === this._rating ? 0 : newRating;
 
     for (let i = 1; i < this._maxScore + 1; i++) {
       let star = this.querySelector(`[data-position="${i}"]`);
@@ -73,7 +68,7 @@ class StarRating extends HTMLElement {
       }
     }
 
-    this.dispatchChange();
+    event && this.dispatchChange();
   }
 
   querySelector(selector) {
