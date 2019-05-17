@@ -1,6 +1,6 @@
 # star-rating
 
-Simple star-rating web component built using Easy Element
+Simple star-rating web component built using [Easy Element](https://www.npmjs.com/package/easy-element)
 
 ![demo screenshot](https://raw.githubusercontent.com/Pilatch/star-rating/master/readme-stuff/demo-screenshot.png)
 
