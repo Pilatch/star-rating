@@ -49,10 +49,14 @@ class StarRating extends HTMLElement {
       bubbles: true,
       composed: true,
       detail: {
-        rating: this._rating
+        rating: this.rating
       }
     });
     this.dispatchEvent(event);
+  }
+
+  get rating() {
+    return this._rating;
   }
 
   setRating(newRating, event = null) {

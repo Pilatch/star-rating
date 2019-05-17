@@ -54,9 +54,13 @@
       let event = new CustomEvent('change', {
         bubbles: true,
         composed: true,
-        detail: {rating: this._rating},
+        detail: {rating: this.rating},
       })
       this.dispatchEvent(event)
+    }
+
+    get rating() {
+      return this._rating
     }
 
     setRating(newRating, event = null) {

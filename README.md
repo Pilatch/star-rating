@@ -1,6 +1,10 @@
 # star-rating
 
-Simple star-rating web component built using [Easy Element](https://www.npmjs.com/package/easy-element) Clicking on a star, unless the `read-only` attribute is present, will change the rating and dispatch a `change` event with a `detail.rating` of the new rating.
+Simple star-rating web component built using [Easy Element](https://www.npmjs.com/package/easy-element).
+
+Clicking on a star, unless the `read-only` attribute is present, will fill in the appropriate number of stars and dispatch a `change` event with a `detail.rating` of the new rating. Clicking the same star twice clears the rating to zero.
+
+
 
 ![demo screenshot](https://raw.githubusercontent.com/Pilatch/star-rating/master/readme-stuff/demo-screenshot.png)
 

@@ -65,7 +65,7 @@ function (_HTMLElement) {
         bubbles: true,
         composed: true,
         detail: {
-          rating: this._rating
+          rating: this.rating
         }
       });
       this.dispatchEvent(event);
@@ -88,6 +88,11 @@ function (_HTMLElement) {
       }
 
       event && this.dispatchChange();
+    }
+  }, {
+    key: "rating",
+    get: function get() {
+      return this._rating;
     }
   }]);
 
