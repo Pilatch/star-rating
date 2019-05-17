@@ -1,10 +1,10 @@
 {
   "name": "star-rating",
   "version": "1.0.0",
-  "description": "Simple star-rating",
+  "description": "Star rating web component by Easy Element",
   "main": "dist/star-rating.class.js",
   "scripts": {
-    "build": "easy-element build src",
+    "build": "easy-element build src --minify",
     "build/watch": "easy-element watch src",
     "dev": "nf --procfile commands/dev.Procfile start",
     "start": "browser-sync start -c bs-config.js"
@@ -16,9 +16,12 @@
     "foreman": "^3.0.1"
   },
   "keywords": [
-    "star-rating",
+    "custom elements",
+    "easy element",
     "web component",
-    "custom element"
+    "custom element",
+    "star-rating",
+    "web components"
   ],
   "license": "GPL-3.0-or-later"
 }
