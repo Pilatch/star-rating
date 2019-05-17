@@ -56,6 +56,7 @@ class StarRating extends HTMLElement {
   }
 
   setRating(newRating, event = null) {
+    if (event && this.getAttribute('read-only') !== null) return null;
     this._rating = newRating === this._rating ? 0 : newRating;
 
     for (let i = 1; i < this._maxScore + 1; i++) {

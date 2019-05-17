@@ -43,7 +43,7 @@ function (_HTMLElement) {
     value: function encode(str) {
       var div = document.createElement("div");
       div["textContent" in div ? "textContent" : "innerText"] = str;
-      return div.innerHTML;
+      return div.innerHTML.replace(/=""/g, '');
     }
   }, {
     key: "connectedCallback",

@@ -74,6 +74,7 @@ function (_HTMLElement) {
     key: "setRating",
     value: function setRating(newRating) {
       var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      if (event && this.getAttribute('read-only') !== null) return null;
       this._rating = newRating === this._rating ? 0 : newRating;
 
       for (var i = 1; i < this._maxScore + 1; i++) {

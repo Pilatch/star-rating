@@ -4,7 +4,7 @@ class ExampleHtml {
     let div = document.createElement("div")
     div[("textContent" in div) ? "textContent" : "innerText"] = str
 
-    return div.innerHTML
+    return div.innerHTML.replace(/=""/g, '')
   }
 
   connectedCallback() {
