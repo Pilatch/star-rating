@@ -11,16 +11,14 @@ class ExampleHtml extends HTMLElement {
       mode: 'open'
     });
     this.shadowRoot.innerHTML = `<slot></slot>`;
-    setTimeout(() => {
-      let codez = this.innerHTML;
-      let example = this.encode(codez);
-      this.innerHTML = `
+    let codez = this.getAttribute('html');
+    let example = this.encode(codez);
+    this.innerHTML = `
 <dt><code><pre>${example}</pre></code></dt>
 <dd>
 ${codez}
 </dd>
 `;
-    }, 0);
   }
 
   querySelector(selector) {

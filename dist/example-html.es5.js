@@ -48,15 +48,9 @@ function (_HTMLElement) {
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
-      var _this = this;
-
-      setTimeout(function () {
-        var codez = _this.innerHTML;
-
-        var example = _this.encode(codez);
-
-        _this.innerHTML = "\n<dt><code><pre>".concat(example, "</pre></code></dt>\n<dd>\n").concat(codez, "\n</dd>\n");
-      }, 0);
+      var codez = this.getAttribute('html');
+      var example = this.encode(codez);
+      this.innerHTML = "\n<dt><code><pre>".concat(example, "</pre></code></dt>\n<dd>\n").concat(codez, "\n</dd>\n");
     }
   }]);
 
