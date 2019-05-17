@@ -1,6 +1,8 @@
 # star-rating
 
-Simple star-rating
+Simple star-rating web component built using Easy Element
+
+![demo screenshot](https://raw.githubusercontent.com/Pilatch/star-rating/master/readme-stuff/demo-screenshot.png)
 
 ## Install
 
@@ -13,6 +15,8 @@ yarn
 ```bash
 yarn start
 ```
+
+See `dist/index.class.html` for how it works.
 
 ## Develop
 
