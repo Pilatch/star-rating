@@ -1,5 +1,6 @@
 {
   "name": "easy-star-rating",
+  "repository": "https://github.com/Pilatch/star-rating",
   "version": "1.0.0",
   "description": "Star rating web component by Easy Element",
   "main": "dist/star-rating.class.js",
