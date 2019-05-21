@@ -20,7 +20,7 @@ yarn
 yarn start
 ```
 
-See `dist/index.class.html` for how it works.
+See the demo page at `dist/index.class.html` for how it works.
 
 ## Develop
 
