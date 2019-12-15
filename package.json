@@ -1,7 +1,7 @@
 {
   "name": "easy-star-rating",
   "repository": "https://github.com/Pilatch/star-rating",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Star rating web component by Easy Element",
   "main": "dist/star-rating.class.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.4",
     "browser-sync": "^2.24.7",
-    "easy-element": "^1.6.1",
+    "easy-element": "^1.8.3",
     "foreman": "^3.0.1"
   },
   "keywords": [
